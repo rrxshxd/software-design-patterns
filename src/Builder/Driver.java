@@ -51,4 +51,15 @@ public class Driver {
             return new Driver(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "name='" + name + '\'' +
+                ", carModel='" + carModel + '\'' +
+                ", licenseNumber='" + licenseNumber + '\'' +
+                ", experienceYears=" + experienceYears +
+                ", isAvailable=" + isAvailable +
+                '}';
+    }
 }

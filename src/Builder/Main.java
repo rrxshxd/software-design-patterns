@@ -10,6 +10,6 @@ public class Main {
                 .isAvailable(true)
                 .build();
 
-        System.out.println(driver.toString());
+        System.out.println(driver);
     }
 }
