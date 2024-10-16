@@ -23,12 +23,12 @@ public class DispatcherMediator implements Mediator {
         if (sender instanceof Client && event.equals("request ride")) {
             System.out.println("DispatcherMediator: Client requested a ride.");
             dispatcher.processRequest();
-        } else if (sender instanceof Driver && event.equals("ride complete")) {
-            System.out.println("DispatcherMediator: Driver completed the ride.");
-            driver.assignToRide();
         } else if (sender instanceof Dispatcher && event.equals("find driver")) {
             System.out.println("DispatcherMediator: Disepatcher is finding a driver.");
             client.notifyCompleted();
+        } else if (sender instanceof Driver && event.equals("ride complete")) {
+            System.out.println("DispatcherMediator: Driver completed the ride.");
+            driver.assignToRide();
         }
     }
 }
