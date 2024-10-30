@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Todo List</h1>
+    <form action="/todos" method="post">
+        <input type="text" name="task" required>
+        <button type="submit">Add ToDo</button>
+    </form>
+    <ul id="todo-list"></ul>
+
+    <script>
+        async function loadTodos() {
+            const response = await fetch('/todos');
+            const todos = await response.json();
+
+            const todoList = document.getElementById('todo-list');
+            todoList.innerHTML = '';
+
+            todos.forEach(todo => {
+                const li = document.createElement('li');
+                li.textContent = `${todo.task} - ${todo.done ? 'Done' : 'Pending'}`;
+                todoList.appendChild(li);
+            });
+        }
+
+        window.onload = loadTodos;
+    </script>
+</body>
+</html>
